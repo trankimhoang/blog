@@ -1,0 +1,24 @@
+- admins
+    + id
+    + name
+    + email
+    + password
+
+- users
+    + id
+    + name
+    + email
+    + password
+
+- posts
+    + id
+    + name
+    + content
+    + admin_id FK
+    + view
+
+- comments
+    + id
+    + content
+    + post_id FK
+    + user_id FK
