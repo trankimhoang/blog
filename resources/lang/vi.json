@@ -1,0 +1,11 @@
+{
+    "Email": "Email",
+    "Password": "Mật khẩu",
+    "Login": "Đăng nhập",
+    "Login fail": "Email hoặc password sai",
+    "Post Management": "Quản lý bài viết",
+    "Add Post": "Thêm bài viết",
+    "List Post": "Danh sách bài viết",
+    "Delete success": "Xóa thành công #:id",
+    "Edit success": "Sửa thành công #:id"
+}
