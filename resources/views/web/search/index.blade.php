@@ -1,6 +1,5 @@
 @extends('layouts.master_user')
 @section('content')
-
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -12,5 +11,5 @@
             </div>
         </div>
     </div>
-    <div>{{ $listPost->render() }}</div>
+    <div>{{ $listPost->appends(request()->input())->links() }}</div>
 @endsection

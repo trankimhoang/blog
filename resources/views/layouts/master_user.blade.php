@@ -43,8 +43,10 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1>Clean Blog</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <form action="{{ route('web.search') }}" method="get">
+                        <input type="text" name="search" class="form-control" placeholder="{{ __('Search') }}" value="{{ old('search', request()->get('search')) }}">
+                        <input type="submit" value="{{ __('Search') }}" class="btn btn-dark mt-2">
+                    </form>
                 </div>
             </div>
         </div>
