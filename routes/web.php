@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('index', [\App\Http\Controllers\Web\HomeController::class, 'index'])->name('index');
+Route::get('', [\App\Http\Controllers\Web\HomeController::class, 'index'])->name('index');
 
 Route::get('search', [\App\Http\Controllers\Web\SearchController::class, 'search'])->name('search');
+
+Route::get('detail/{id}', [\App\Http\Controllers\Web\PostController::class, 'detail'])->name('detail');
 
 Route::middleware(['guest:web'])->group(function (){
     Route::get('user/register', [\App\Http\Controllers\Web\AuthController::class, 'showFormRegister'])->name('register');
@@ -27,6 +29,8 @@ Route::middleware(['guest:web'])->group(function (){
 
 Route::middleware(['auth:web'])->group(function (){
     Route::get('user/logout', [\App\Http\Controllers\Web\AuthController::class, 'logout'])->name('logout');
+
+    Route::post('comment', [\App\Http\Controllers\Web\PostController::class, 'comment'])->name('comment');
 
 });
 

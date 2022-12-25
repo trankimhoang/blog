@@ -1,4 +1,9 @@
 @extends('layouts.master_user')
+@section('page_title')
+    <div class="site-heading">
+        <h3>{{ __('Search result', ['number' => $listPost->total(), 'search' => request()->get('search')]) }}</h3>
+    </div>
+@endsection
 @section('content')
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">

@@ -13,5 +13,9 @@
     "Register success": "Đăng ký thành công",
     "Hello name": "Chào :name",
     "Home": "Trang chủ",
-    "Search": "Tìm kiếm"
+    "Search": "Tìm kiếm",
+    "Search result": "Tìm thấy :number kết quả cho từ khóa ':search'",
+    "View": "Lượt xem: :view",
+    "on": "vào lúc",
+    "Please login to comment": "Vui lòng đăng nhập để bình luận!!!"
 }

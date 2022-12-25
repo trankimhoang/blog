@@ -1,4 +1,11 @@
 @extends('layouts.master_user')
+
+@section('page_title')
+    <div class="site-heading">
+        <h1>{{ __('Home') }}</h1>
+    </div>
+@endsection
+
 @section('content')
 
     <!-- Main Content-->

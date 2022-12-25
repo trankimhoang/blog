@@ -19,7 +19,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="{{ route('web.index') }}">Start Bootstrap</a>
+        <a class="navbar-brand" href="{{ route('web.index') }}">{{ env('APP_NAME') }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -43,10 +43,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <form action="{{ route('web.search') }}" method="get">
-                        <input type="text" name="search" class="form-control" placeholder="{{ __('Search') }}" value="{{ old('search', request()->get('search')) }}">
-                        <input type="submit" value="{{ __('Search') }}" class="btn btn-dark mt-2">
-                    </form>
+                    @yield('page_title')
                 </div>
             </div>
         </div>
@@ -65,6 +62,16 @@
             {{ session()->get('success') }}
         </div>
     @endif
+
+    <form action="{{ route('web.search') }}" method="get" class="text-center">
+        <input type="text" name="search" class="form-control" placeholder="{{ __('Search') }}" value="{{ old('search', request()->get('search')) }}">
+        @error('search')
+            <p class="alert alert-danger">{{ $message }}</p>
+        @enderror
+        <input type="submit" value="{{ __('Search') }}" class="btn btn-dark mt-2">
+
+
+    </form>
 
     @yield('content')
 </div>
