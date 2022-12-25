@@ -12,12 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('login', [\App\Http\Controllers\Admin\AuthController::class, 'showFormLogin'])->name('login');
+Route::middleware(['guest:admin'])->group(function (){
+    Route::get('login', [\App\Http\Controllers\Admin\AuthController::class, 'showFormLogin'])->name('login');
+    Route::post('login', [\App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login.post');
+});
 
-Route::post('login', [\App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login.post');
+Route::middleware(['auth:admin'])->group(function (){
+    Route::get('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
 
-Route::get('index', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
+    Route::get('index', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
+    Route::resource('post', 'Admin\PostController');
+});
 
-Route::get('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
-
-Route::resource('post', 'Admin\PostController');

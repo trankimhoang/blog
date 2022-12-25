@@ -7,5 +7,10 @@
     "Add Post": "Thêm bài viết",
     "List Post": "Danh sách bài viết",
     "Delete success": "Xóa thành công #:id",
-    "Edit success": "Sửa thành công #:id"
+    "Edit success": "Sửa thành công #:id",
+    "Register": "Đăng ký",
+    "Name": "Tên",
+    "Register success": "Đăng ký thành công",
+    "Hello name": "Chào :name",
+    "Home": "Trang chủ"
 }
