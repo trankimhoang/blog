@@ -26,8 +26,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('web.index') }}">{{ __('Home') }}</a></li>
 
+                @php
+                    $listCategory = \App\Models\Category::all();
+                @endphp
+                @foreach($listCategory as $category)
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">{{ $category->name }}</a></li>
+                @endforeach
+
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('web.index') }}">{{ __('Home') }}</a></li>
                 @if(\Illuminate\Support\Facades\Auth::guard('web')->check())
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('web.logout') }}">{{ __('Hello name', ['name' => \Illuminate\Support\Facades\Auth::guard('web')->user()->name]) }}</a></li>
                 @else

@@ -6,6 +6,7 @@
             <th>{{ __('ID') }}</th>
             <th>{{ __('Name Post') }}</th>
             <th>{{ __('Admin Name') }}</th>
+            <th>{{ __('Name Category') }}</th>
             <th>{{ __('View') }}</th>
             <th>{{ __('Action') }}</th>
         </tr>
@@ -14,6 +15,7 @@
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->admin->name }}</td>
+                <td>{{ $post->category->name ?? '' }}</td>
                 <td>{{ $post->view }}</td>
                 <td>
                     <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-dark mb-2">{{ __('Edit') }}</a>

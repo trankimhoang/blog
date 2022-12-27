@@ -26,5 +26,7 @@ Route::middleware(['auth:admin'])->group(function (){
 
     Route::resource('comment', 'Admin\CommentController');
 
+    Route::resource('category', 'Admin\CategoryController');
+
 });
 

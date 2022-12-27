@@ -30,5 +30,11 @@
     "Comment Management": "Quản lý bình luận",
     "List Comment": "Danh sách bình luận",
     "Post Name": "Tên bài viết",
-    "User Name": "Tên người dùng"
+    "User Name": "Tên người dùng",
+    "Category Management": "Quản lý thể loại",
+    "List Category": "Danh sách thể loại",
+    "Name Category": "Tên thể loại",
+    "Edit": "Chỉnh sửa/Chi tiết",
+    "Edit Category": "Chỉnh sửa thể loại",
+    "Add Category": "Thêm thể loại"
 }

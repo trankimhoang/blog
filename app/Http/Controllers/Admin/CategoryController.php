@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\PostStoreRequest;
-use App\Http\Requests\Post\PostUpdateRequest;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +19,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //$listPost = Post::with(['Admin'])->paginate(10);
-        $listPost = Post::with(['admin'])->paginate(10);
-        return view('admin.post.index', compact('listPost'));
+        $listCategory = Category::paginate(3);
+        return view('admin.category.index', compact('listCategory'));
+
     }
 
     /**
@@ -32,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -41,18 +40,17 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostStoreRequest $request)
+    public function store(Request $request)
     {
         try {
-            $data = $request->only(['name', 'content']);
-            $data['admin_id'] = Auth::guard('admin')->user()->id;
+            $data = $request->only(['name']);
 
-            $post = new Post();
-            $post->fill($data);
+            $category = new Category();
+            $category->fill($data);
 
-            $post->save();
+            $category->save();
 
-            return redirect()->route('admin.post.index');
+            return redirect()->route('admin.category.index');
 
 
         } catch (\Exception $exception){
@@ -81,10 +79,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        $listCategory = Category::all();
-
-        return view('admin.post.edit', compact('post', 'listCategory'));
+        $category = Category::find($id);
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -94,22 +90,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
-            $data = $request->all();
-            $post = Post::find($id);
-            $post->fill($data);
+            $data = $request->only(['name']);
+            $category = Category::find($id);
+            $category->fill($data);
 
-            $post->save();
-            return redirect()->route('admin.post.index')->with('success', __('Edit success', ['id'=>$id]));
+            $category->save();
+            return redirect()->route('admin.category.index')->with('success', __('Edit success', ['id'=>$id]));
 
         } catch (\Exception $exception){
             Log::error($exception->getMessage());
 
             return redirect()->back()->with('error', $exception->getMessage());
         }
-
     }
 
     /**
@@ -121,9 +116,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         try {
-            $post = Post::find($id);
-            $post->delete();
-            return redirect()->route('admin.post.index')->with('success', __('Delete success', ['id' => $id]));
+            $category = Category::find($id);
+            $category->delete();
+            return redirect()->back()->with('success', __('Delete success', ['id' => $id]));
         }catch (\Exception $exception){
             Log::error($exception->getMessage());
 
