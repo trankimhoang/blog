@@ -35,7 +35,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Admin</div>
+            <div class="sidebar-brand-text mx-3">ADMIN</div>
         </a>
 
         <!-- Divider -->
@@ -45,7 +45,7 @@
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('admin.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Home</span></a>
+                <span>{{ __('Home') }}</span></a>
         </li>
 
         <!-- Divider -->
@@ -66,7 +66,20 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('admin.post.index') }}">{{ __('List Post') }}</a>
-                    <a class="collapse-item" href="">{{ __('Add Post') }}</a>
+                    <a class="collapse-item" href="{{ route('admin.post.create') }}">{{ __('Add Post') }}</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>{{ __('Comment Management') }}</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('admin.comment.index') }}">{{ __('List Comment') }}</a>
                 </div>
             </div>
         </li>
@@ -190,7 +203,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy; Tran Kim Hoang</span>
                 </div>
             </div>
         </footer>

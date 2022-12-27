@@ -1,5 +1,4 @@
 @extends('layouts.master_admin')
-@section('page_title', __('Top Comment'))
 @section('content')
     <table class="table table-bordered">
         <tr>
@@ -10,15 +9,15 @@
             <th>{{ __('Created at') }}</th>
             <th>{{ __('Action') }}</th>
         </tr>
-        @foreach($listTopComment as $topComment)
+        @foreach($listComment as $comment)
             <tr>
-                <td>{{ $topComment->id }}</td>
-                <td>{{ $topComment->post->name }}</td>
-                <td>{{ $topComment->user->name }}</td>
-                <td>{{ $topComment->content }}</td>
-                <td>{{ $topComment->created_at }}</td>
+                <td>{{ $comment->id }}</td>
+                <td>{{ $comment->post->name }}</td>
+                <td>{{ $comment->user->name }}</td>
+                <td>{{ $comment->content }}</td>
+                <td>{{ $comment->created_at }}</td>
                 <td>
-                    <form action="{{ route('admin.comment.destroy', $topComment->id) }}" method="post">
+                    <form action="{{ route('admin.comment.destroy', $comment->id) }}" method="post">
                         @csrf
                         @method('delete')
                         <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
@@ -27,4 +26,5 @@
             </tr>
         @endforeach
     </table>
+    <div>{{ $listComment->render() }}</div>
 @endsection

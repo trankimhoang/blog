@@ -21,6 +21,10 @@ Route::middleware(['auth:admin'])->group(function (){
     Route::get('logout', [\App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
 
     Route::get('index', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
+
     Route::resource('post', 'Admin\PostController');
+
+    Route::resource('comment', 'Admin\CommentController');
+
 });
 

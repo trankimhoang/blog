@@ -18,5 +18,17 @@
     "View": "Lượt xem: :view",
     "on": "vào lúc",
     "Please login to comment": "Vui lòng đăng nhập để bình luận!!!",
-    "Comment": "Bình luận"
+    "Comment": "Bình luận",
+    "ID": "Mã số",
+    "Admin Name": "Tên quản trị",
+    "Name Post": "Tên bài viết",
+    "Action": "Hành động",
+    "Top Comment": "Bình luận mới nhất",
+    "Content": "Nội dung",
+    "Created at": "Ngày tạo",
+    "Post ID": "Mã bài viết",
+    "Comment Management": "Quản lý bình luận",
+    "List Comment": "Danh sách bình luận",
+    "Post Name": "Tên bài viết",
+    "User Name": "Tên người dùng"
 }

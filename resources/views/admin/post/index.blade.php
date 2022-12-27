@@ -4,8 +4,8 @@
     <table class="table table-bordered">
         <tr>
             <th>{{ __('ID') }}</th>
-            <th>{{ __('Name') }}</th>
-            <th>{{ __('Admin') }}</th>
+            <th>{{ __('Name Post') }}</th>
+            <th>{{ __('Admin Name') }}</th>
             <th>{{ __('View') }}</th>
             <th>{{ __('Action') }}</th>
         </tr>
