@@ -7,6 +7,7 @@
             <th>{{ __('Name Post') }}</th>
             <th>{{ __('Admin Name') }}</th>
             <th>{{ __('Name Category') }}</th>
+            <th>{{ __('Image') }}</th>
             <th>{{ __('View') }}</th>
             <th>{{ __('Action') }}</th>
         </tr>
@@ -16,6 +17,9 @@
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->admin->name }}</td>
                 <td>{{ $post->category->name ?? '' }}</td>
+                <td>
+                    <img src="{{ $post->getImage() }}" alt="" width="128px">
+                </td>
                 <td>{{ $post->view }}</td>
                 <td>
                     <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-dark mb-2">{{ __('Edit') }}</a>

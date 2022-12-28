@@ -21,7 +21,7 @@ class PostController extends Controller
     public function index()
     {
         //$listPost = Post::with(['Admin'])->paginate(10);
-        $listPost = Post::with(['admin'])->paginate(10);
+        $listPost = Post::with(['admin'])->paginate(5);
         return view('admin.post.index', compact('listPost'));
     }
 
@@ -32,7 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $listCategory = Category::all();
+        return view('admin.post.create', compact( 'listCategory'));
     }
 
     /**
@@ -44,11 +45,18 @@ class PostController extends Controller
     public function store(PostStoreRequest $request)
     {
         try {
-            $data = $request->only(['name', 'content']);
+            $data = $request->all();
             $data['admin_id'] = Auth::guard('admin')->user()->id;
 
             $post = new Post();
             $post->fill($data);
+
+            if ($request->has('image')) {
+                $imagePath = 'post_images/' . $post->getAttribute('id');
+                $imageUrl = updateImage($request->file('image'), 'avatar', $imagePath);
+                $post->setAttribute('image', $imageUrl);
+                $post->save();
+            }
 
             $post->save();
 
@@ -100,6 +108,13 @@ class PostController extends Controller
             $data = $request->all();
             $post = Post::find($id);
             $post->fill($data);
+
+            if ($request->has('image')) {
+                $imagePath = 'post_images/' . $post->getAttribute('id');
+                $imageUrl = updateImage($request->file('image'), 'avatar', $imagePath);
+                $post->setAttribute('image', $imageUrl);
+                $post->save();
+            }
 
             $post->save();
             return redirect()->route('admin.post.index')->with('success', __('Edit success', ['id'=>$id]));

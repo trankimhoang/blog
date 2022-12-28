@@ -26,7 +26,9 @@ class PostUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'content' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ];
     }
 }

@@ -13,6 +13,12 @@
         <i class="fa fa-eye"></i>
         {{ __('View', ['view' => $post->view]) }}
     </p>
+    <p class="post-meta">
+        <a href="{{ route('web.detail', ['id'=>$post->id]) }}">
+            <img src="{{ $post->getImage() }}" alt="">
+        </a>
+    </p>
+
 </div>
 <!-- Divider-->
 <hr class="my-4" />
