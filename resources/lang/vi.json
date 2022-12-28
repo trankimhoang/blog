@@ -34,10 +34,15 @@
     "Category Management": "Quản lý thể loại",
     "List Category": "Danh sách thể loại",
     "Name Category": "Tên thể loại",
-    "Edit": "Chỉnh sửa/Chi tiết",
+    "Edit/Detail": "Chỉnh sửa/Chi tiết",
     "Edit Category": "Chỉnh sửa thể loại",
     "Add Category": "Thêm thể loại",
     "Image": "Hình ảnh",
     "Category": "Thể loại",
-    "Save": "Lưu"
+    "Save": "Lưu",
+    "List admin": "Danh sách quản trị",
+    "Add Admin": "Thêm quản trị",
+    "Admin Management": "Tài khoản quản trị",
+    "Edit admin": "Chỉnh sửa quản trị",
+    "Delete": "Xóa"
 }

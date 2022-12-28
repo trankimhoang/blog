@@ -22,7 +22,7 @@
                 </td>
                 <td>{{ $post->view }}</td>
                 <td>
-                    <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-dark mb-2">{{ __('Edit') }}</a>
+                    <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-dark mb-2">{{ __('Edit/Detail') }}</a>
 
                     <form action="{{ route('admin.post.destroy', $post->id) }}" method="post">
                         @csrf

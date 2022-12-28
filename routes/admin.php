@@ -28,5 +28,6 @@ Route::middleware(['auth:admin'])->group(function (){
 
     Route::resource('category', 'Admin\CategoryController');
 
+    Route::resource('admin', 'Admin\AdminController');
 });
 

@@ -13,7 +13,7 @@
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->name }}</td>
                 <td>
-                    <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-dark mb-2">{{ __('Edit') }}</a>
+                    <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-dark mb-2">{{ __('Edit/Detail') }}</a>
                     <form action="{{ route('admin.category.destroy', $category->id) }}" method="post">
                         @csrf
                         @method('delete')
