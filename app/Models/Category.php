@@ -9,4 +9,8 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable = ['name'];
+
+    public function post(){
+        return $this->hasMany(Post::class, 'category_id');
+    }
 }

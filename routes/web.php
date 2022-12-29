@@ -18,6 +18,8 @@ Route::get('search', [\App\Http\Controllers\Web\SearchController::class, 'search
 
 Route::get('detail/{id}', [\App\Http\Controllers\Web\PostController::class, 'detail'])->name('detail');
 
+Route::get('category/{id}', [\App\Http\Controllers\Web\CategoryController::class, 'category'])->name('category.detail');
+
 Route::middleware(['guest:web'])->group(function (){
     Route::get('user/register', [\App\Http\Controllers\Web\AuthController::class, 'showFormRegister'])->name('register');
     Route::post('user/register', [\App\Http\Controllers\Web\AuthController::class, 'register'])->name('register.post');

@@ -31,7 +31,7 @@
                     $listCategory = \App\Models\Category::all();
                 @endphp
                 @foreach($listCategory as $category)
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">{{ $category->name }}</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('web.category.detail', $category->id) }}}">{{ $category->name }}</a></li>
                 @endforeach
 
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('web.index') }}">{{ __('Home') }}</a></li>
