@@ -32,6 +32,10 @@ Route::middleware(['auth:web'])->group(function (){
 
     Route::post('comment', [\App\Http\Controllers\Web\PostController::class, 'comment'])->name('comment');
 
+    Route::get('user/profile', [\App\Http\Controllers\Web\ProfileController::class, 'showFormProfile'])->name('profile');
+    Route::post('user/profile/{id}', [\App\Http\Controllers\Web\ProfileController::class, 'profile'])->name('profile.post');
+
+
 });
 
 

@@ -22,7 +22,7 @@
         <div class="form-group">
             <img src="{{ $post->getImage() }}" width="256px" class="img-preview">
             <label for="image">{{ __('Image') }}</label>
-            <input type="file" name="image" id="image" class="form-control" value="{{ old('image', $post->image) }}">
+            <input type="file" name="image" id="image" class="form-control">
             @error('image')
             <p class="alert alert-danger">{{ $message }}</p>
             @enderror

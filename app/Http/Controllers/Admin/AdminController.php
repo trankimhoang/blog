@@ -63,7 +63,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        // no se hieu la cai route nay
+        echo "id = $id";
     }
 
     /**
@@ -75,6 +76,11 @@ class AdminController extends Controller
     public function edit($id)
     {
         $admin = Admin::find($id);
+
+        if (empty($admin)) {
+            abort(404);
+        }
+
         return view('admin.admin.edit', compact('admin'));
     }
 
@@ -89,12 +95,22 @@ class AdminController extends Controller
     {
         try {
             $admin = Admin::find($id);
-            $admin->setAttribute('name', $request->get('name'));
+            $data = $request->all();
 
-            $admin->setAttribute('email', $request->get('email'));
-            if (!empty($request->get('password'))){
-                $admin->setAttribute('password', Hash::make($request->get('password')));
+            if (!empty($data['password'])){
+                $data['password'] = Hash::make($request->get('password'));
+            } else {
+                unset($data['password']);
             }
+
+            $admin->fill($data);
+
+            if ($request->has('image')) {
+                $imagePath = 'admin_images/' . $admin->getAttribute('id');
+                $imageUrl = updateImage($request->file('image'), 'avatar', $imagePath);
+                $admin->setAttribute('image', $imageUrl);
+            }
+
             $admin->save();
 
             return redirect()->route('admin.admin.index')->with('success', __('Edit success', ['id'=>$id]));
@@ -107,7 +123,7 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

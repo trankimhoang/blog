@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 .idea
 /public/post_images
+/public/admin_images
+/public/user_images

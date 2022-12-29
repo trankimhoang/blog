@@ -15,7 +15,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'image',
     ];
 
     /**
@@ -40,4 +40,11 @@ class Admin extends Authenticatable
         return $this->hasMany(Post::class, 'admin_id');
     }
 
+    public function getImage(): string {
+        if (!empty($this->image) && is_file(public_path($this->image))) {
+            return asset($this->image);
+        }
+
+        return asset('images/not_found.jpg');
+    }
 }

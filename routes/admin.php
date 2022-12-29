@@ -28,6 +28,11 @@ Route::middleware(['auth:admin'])->group(function (){
 
     Route::resource('category', 'Admin\CategoryController');
 
-    Route::resource('admin', 'Admin\AdminController');
+    // ->except(['show']); = khong sai cai function show nua
+    Route::resource('admin', 'Admin\AdminController')->except(['show']);
+
+//    Route::get('admin/profile', [\App\Http\Controllers\Admin\ProfileController::class, 'showFormProfile'])->name('profile');
+//    Route::post('admin/profile', [\App\Http\Controllers\Admin\ProfileController::class, 'profile'])->name('profile.post');
+
 });
 

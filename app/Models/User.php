@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'image',
     ];
 
     /**
@@ -35,4 +35,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getImage(): string {
+        if (!empty($this->image) && is_file(public_path($this->image))) {
+            return asset($this->image);
+        }
+
+        return asset('images/not_found.jpg');
+    }
 }

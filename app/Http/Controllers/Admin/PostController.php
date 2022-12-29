@@ -109,6 +109,7 @@ class PostController extends Controller
             $post = Post::find($id);
             $post->fill($data);
 
+            // nay check có cái file hay khong ne
             if ($request->has('image')) {
                 $imagePath = 'post_images/' . $post->getAttribute('id');
                 $imageUrl = updateImage($request->file('image'), 'avatar', $imagePath);
