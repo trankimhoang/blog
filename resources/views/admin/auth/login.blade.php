@@ -49,9 +49,12 @@
     </div>
 </div>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="{{ asset('lib/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+<script src="{{ asset('lib/bootstrap/js/bootstrap.js') }}"></script>
+
+
+
+<script src="{{ asset('lib/jquery.min.js') }}"></script>
 <!------ Include the above in your HEAD tag ---------->
 <style>
     body {
