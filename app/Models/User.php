@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\UserPasswordReset;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -44,5 +45,15 @@ class User extends Authenticatable {
         }
 
         return asset('images/not_found.jpg');
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param string $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token) {
+        $this->notify(new UserPasswordReset($this->getAttribute('name'), $this->getAttribute('email'), $token));
     }
 }

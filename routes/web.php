@@ -27,6 +27,12 @@ Route::middleware(['guest:web'])->group(function () {
 
         Route::get('login', [\App\Http\Controllers\Web\AuthController::class, 'showFormLogin'])->name('login');
         Route::post('login', [\App\Http\Controllers\Web\AuthController::class, 'login'])->name('login.post');
+
+        Route::get('password/forgot', [\App\Http\Controllers\Web\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+        Route::post('password/email', [\App\Http\Controllers\Web\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+        Route::get('password/reset/{token}', [\App\Http\Controllers\Web\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+        Route::post('password/reset', [\App\Http\Controllers\Web\ResetPasswordController::class, 'reset'])->name('password.update');
     });
 });
 
