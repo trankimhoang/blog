@@ -4,15 +4,13 @@ namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostStoreRequest extends FormRequest
-{
+class PostStoreRequest extends FormRequest {
     /**
      * Determine if the home is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize(): bool {
         return true;
     }
 
@@ -21,8 +19,7 @@ class PostStoreRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(): array {
         return [
             'name' => 'required',
             'content' => 'required',

@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class CategoryController extends Controller
-{
-    public function category($id){
+class CategoryController extends Controller {
+    public function category($id): View {
         $category = Category::find($id);
         $listPost = Post::where('category_id', '=', $id)->paginate(5);
 

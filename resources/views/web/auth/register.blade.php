@@ -13,7 +13,7 @@
                                 <input type="text" name="name" class="form-control" value="{{ old('name') }}">
 
                                 @error('name')
-                                <p class="alert alert-danger">{{ $message }}</p>
+                                    <p class="alert alert-danger">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -21,7 +21,7 @@
                                 <input type="text" name="email" class="form-control" value="{{ old('email') }}">
 
                                 @error('email')
-                                <p class="alert alert-danger">{{ $message }}</p>
+                                    <p class="alert alert-danger">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -29,7 +29,7 @@
                                 <input type="password" name="password" class="form-control" value="{{ old('password') }}">
 
                                 @error('password')
-                                <p class="alert alert-danger">{{ $message }}</p>
+                                    <p class="alert alert-danger">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="form-group text-center mt-2">

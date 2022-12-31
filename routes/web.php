@@ -20,24 +20,27 @@ Route::get('detail/{id}', [\App\Http\Controllers\Web\PostController::class, 'det
 
 Route::get('category/{id}', [\App\Http\Controllers\Web\CategoryController::class, 'category'])->name('category.detail');
 
-Route::middleware(['guest:web'])->group(function (){
-    Route::get('user/register', [\App\Http\Controllers\Web\AuthController::class, 'showFormRegister'])->name('register');
-    Route::post('user/register', [\App\Http\Controllers\Web\AuthController::class, 'register'])->name('register.post');
+Route::middleware(['guest:web'])->group(function () {
+    Route::prefix('user')->group(function () {
+        Route::get('register', [\App\Http\Controllers\Web\AuthController::class, 'showFormRegister'])->name('register');
+        Route::post('register', [\App\Http\Controllers\Web\AuthController::class, 'register'])->name('register.post');
 
-    Route::get('user/login', [\App\Http\Controllers\Web\AuthController::class, 'showFormLogin'])->name('login');
-    Route::post('user/login', [\App\Http\Controllers\Web\AuthController::class, 'login'])->name('login.post');
-
+        Route::get('login', [\App\Http\Controllers\Web\AuthController::class, 'showFormLogin'])->name('login');
+        Route::post('login', [\App\Http\Controllers\Web\AuthController::class, 'login'])->name('login.post');
+    });
 });
 
-Route::middleware(['auth:web'])->group(function (){
-    Route::get('user/logout', [\App\Http\Controllers\Web\AuthController::class, 'logout'])->name('logout');
-
+Route::middleware(['auth:web'])->group(function () {
     Route::post('comment', [\App\Http\Controllers\Web\PostController::class, 'comment'])->name('comment');
 
-    Route::get('user/profile', [\App\Http\Controllers\Web\ProfileController::class, 'showFormProfile'])->name('profile');
-    Route::post('user/profile/{id}', [\App\Http\Controllers\Web\ProfileController::class, 'profile'])->name('profile.post');
 
+    Route::prefix('user')->group(function () {
+        Route::get('logout', [\App\Http\Controllers\Web\AuthController::class, 'logout'])->name('logout');
 
+        Route::get('profile', [\App\Http\Controllers\Web\ProfileController::class, 'showFormProfile'])->name('profile');
+
+        Route::post('profile/{id}', [\App\Http\Controllers\Web\ProfileController::class, 'profile'])->name('profile.post');
+    });
 });
 
 

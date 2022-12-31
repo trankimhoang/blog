@@ -4,6 +4,7 @@
         <h1>{{ $category->name  }}</h1>
     </div>
 @endsection
+
 @section('content')
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">

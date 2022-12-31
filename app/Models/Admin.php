@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Admin extends Authenticatable
-{
+/**
+ * @method static find(int $id)
+ */
+class Admin extends Authenticatable {
     use Notifiable;
 
     /**
@@ -36,7 +38,7 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
+    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany {
         return $this->hasMany(Post::class, 'admin_id');
     }
 

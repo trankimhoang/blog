@@ -4,17 +4,17 @@
     <form action="{{ route('admin.admin.store') }}" method="post">
         @csrf
         <div class="form-group">
-            <label for="">{{ __('Name') }}</label>
+            <label for="name">{{ __('Name') }}</label>
             <input type="text" name="name" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="">{{ __('Email') }}</label>
+            <label for="email">{{ __('Email') }}</label>
             <input type="text" name="email" class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="">{{ __('Password') }}</label>
+            <label for="password">{{ __('Password') }}</label>
             <input type="password" name="password" class="form-control">
         </div>
 

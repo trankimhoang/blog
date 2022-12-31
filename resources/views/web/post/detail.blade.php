@@ -1,4 +1,5 @@
 @extends('layouts.master_user')
+
 @section('page_title')
     <div class="site-heading">
         <h3>{{ $post->name }}</h3>
@@ -9,6 +10,7 @@
         </p>
     </div>
 @endsection
+
 @section('content')
     <article class="mb-4">
         <div class="container px-4 px-lg-5">
@@ -23,7 +25,7 @@
                     @csrf
                     <input type="hidden" name="post_id" value="{{ $post->id }}">
                     @error('comment')
-                    <p class="alert alert-danger">{{ $message }}</p>
+                        <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
                     <div class="form-group text-center">
                         <textarea name="comment" cols="30" rows="10" class="form-control"></textarea>
@@ -55,7 +57,6 @@
                                 </div>
                                 <small>{{ $comment->created_at }}</small>
                             </div>
-
                         </div>
                     @endforeach
                 </div>

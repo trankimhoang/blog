@@ -2,8 +2,6 @@
 @section('content')
     <a href="{{ route('admin.post.create') }}" class="btn btn-primary mb-2">{{ __('Add Post') }}</a>
 
-
-
     <form action="{{ route('admin.post.delete_all') }}" id="form_delete_all" method="post">
         @csrf
         <button class="btn btn-danger mb-2" type="submit">{{ __('Delete') }}</button>

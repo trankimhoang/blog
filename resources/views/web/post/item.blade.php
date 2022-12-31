@@ -6,7 +6,6 @@
         @else
             <h3 class="post-subtitle">{{ $post->content}}</h3>
         @endif
-
     </a>
     <p class="post-meta">{{ __('Posted by') }} {{ $post->admin->name }} {{ __('on') }} {{ $post->created_at }}</p>
     <p class="post-meta">
@@ -18,7 +17,6 @@
             <img src="{{ $post->getImage() }}" alt="">
         </a>
     </p>
-
 </div>
 <!-- Divider-->
 <hr class="my-4" />

@@ -14,7 +14,8 @@
                 <td>{{ $admin->name }}</td>
                 <td>{{ $admin->email }}</td>
                 <td>
-                    <a href="{{ route('admin.admin.edit', $admin->id) }}" class="btn btn-dark mb-2">{{ __('Edit/Detail') }}</a>
+                    <a href="{{ route('admin.admin.edit', $admin->id) }}"
+                       class="btn btn-dark mb-2">{{ __('Edit/Detail') }}</a>
                     <form action="{{ route('admin.admin.destroy', $admin->id) }}" method="post">
                         @csrf
                         @method('delete')

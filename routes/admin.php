@@ -28,10 +28,8 @@ Route::middleware(['auth:admin'])->group(function (){
 
     Route::resource('category', 'Admin\CategoryController');
 
-    // ->except(['show']); = khong sai cai function show nua
     Route::resource('admin', 'Admin\AdminController')->except(['show']);
 
     Route::post('delete_all', [\App\Http\Controllers\Admin\PostController::class, 'deleteAll'])->name('post.delete_all');
-
 });
 

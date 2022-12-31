@@ -7,7 +7,7 @@
             <label for="name">{{ __('Name') }}</label>
             <input type="text" name="name" class="form-control" value="{{ old('name') }}">
             @error('name')
-            <p class="alert alert-danger">{{ $message }}</p>
+                <p class="alert alert-danger">{{ $message }}</p>
             @enderror
         </div>
 

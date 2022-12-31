@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminLoginRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class AuthController extends Controller
 {
-    public function showFormLogin(){
+    public function showFormLogin(): View {
         return view('admin.auth.login');
     }
 
-    public function login(AdminLoginRequest $request){
+    public function login(AdminLoginRequest $request): \Illuminate\Http\RedirectResponse {
         $email = $request->get('email');
         $password = $request->get('password');
 
@@ -27,7 +27,7 @@ class AuthController extends Controller
         return redirect()->back()->with('error', __('Login fail'));
     }
 
-    public function logout(){
+    public function logout(): \Illuminate\Http\RedirectResponse {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
     }

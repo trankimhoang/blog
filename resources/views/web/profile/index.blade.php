@@ -1,9 +1,11 @@
 @extends('layouts.master_user')
+
 @section('page_title')
     <div class="site-heading">
         <h1>{{ __('Edit Profile') }}</h1>
     </div>
 @endsection
+
 @section('content')
     <form action="{{ route('web.profile.post', $profileUser->id) }}" method="post" enctype="multipart/form-data">
         @csrf
