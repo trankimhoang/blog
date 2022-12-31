@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -150,6 +151,17 @@ class PostController extends Controller
             $post = Post::find($id);
             $post->delete();
             return redirect()->route('admin.post.index')->with('success', __('Delete success', ['id' => $id]));
+        }catch (\Exception $exception){
+            Log::error($exception->getMessage());
+
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
+    }
+    public function deleteAll(Request $request){
+        try {
+            $listId = $request->get('list_post_delete');
+            DB::table('posts')->whereIn('id', array_keys($listId))->delete();
+            return redirect()->route('admin.post.index')->with('success', __('Delete success', ['id' => implode(',', array_keys($listId))]));
         }catch (\Exception $exception){
             Log::error($exception->getMessage());
 

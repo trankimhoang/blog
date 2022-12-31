@@ -31,8 +31,7 @@ Route::middleware(['auth:admin'])->group(function (){
     // ->except(['show']); = khong sai cai function show nua
     Route::resource('admin', 'Admin\AdminController')->except(['show']);
 
-//    Route::get('admin/profile', [\App\Http\Controllers\Admin\ProfileController::class, 'showFormProfile'])->name('profile');
-//    Route::post('admin/profile', [\App\Http\Controllers\Admin\ProfileController::class, 'profile'])->name('profile.post');
+    Route::post('delete_all', [\App\Http\Controllers\Admin\PostController::class, 'deleteAll'])->name('post.delete_all');
 
 });
 
