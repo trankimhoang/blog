@@ -7,9 +7,11 @@ use App\Http\Requests\Post\PostStoreRequest;
 use App\Http\Requests\Post\PostUpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -59,6 +61,14 @@ class PostController extends Controller
             }
 
             $post->save();
+
+
+            $listUserSendMail = User::all();
+            foreach ($listUserSendMail as $userSendMail){
+                Mail::send('emails.test', ['userSendMail' => $userSendMail, "post"=>$post], function($message) use ($userSendMail) {
+                    $message->to($userSendMail->email, $userSendMail->name)->subject(__('Post new'));
+                });
+            }
 
             return redirect()->route('admin.post.index');
 
