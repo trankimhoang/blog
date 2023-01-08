@@ -46,12 +46,14 @@
                     <li class="nav-item dropdown no-arrow"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                                               href="{{ route('web.logout') }}">{{ __('Hello name', ['name' => \Illuminate\Support\Facades\Auth::guard('web')->user()->name]) }}</a>
                     </li>
+
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                                            href="{{ route('web.profile') }}">{{ __('Profile') }}</a></li>
                 @else
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
                                             href="{{ route('web.login') }}">{{ __('Login') }}</a></li>
                 @endif
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                                        href="{{ route('web.profile') }}">{{ __('Profile') }}</a></li>
+
             </ul>
         </div>
     </div>

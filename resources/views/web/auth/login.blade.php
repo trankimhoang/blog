@@ -1,4 +1,4 @@
-@extends('layouts.master_user')\
+@extends('layouts.master_user')
 @section('content')
     <div id="login">
         <div class="container">
