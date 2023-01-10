@@ -19,7 +19,7 @@ class PostController extends Controller {
         return view('web.post.detail', compact('post'));
     }
 
-    public function comment(PostCommentRequest $request): \Illuminate\Http\RedirectResponse {
+    public function comment(PostCommentRequest $request) {
         try {
             $comment = new Comment();
             $comment->setAttribute('post_id', $request->get('post_id'));
@@ -27,10 +27,11 @@ class PostController extends Controller {
             $comment->setAttribute('content', $request->get('comment'));
 
             $comment->save();
-            return redirect()->route('web.detail', $request->get('post_id'))->with('success', __('Comment success'));
+            return view('web.comment.item_comment', compact('comment'));
         } catch (\Exception $exception) {
             Log::error($exception->getMessage());
             return redirect()->back()->with('error', $exception->getMessage());
         }
+
     }
 }
